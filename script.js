@@ -46,7 +46,8 @@ if (dividendType === "flat") {
   dividend = frontage * dividendAmount;
 }
 
-let newBill = baseMeterFee + frontageCharge + surcharge - dividend;
+let calculatedBill = baseMeterFee + frontageCharge + surcharge - dividend;
+let newBill = Math.max(baseMeterFee, calculatedBill);
 
 document.getElementById("currentBill").innerText = current.toFixed(2);
 document.getElementById("frontageCharge").innerText = frontageCharge.toFixed(2);
