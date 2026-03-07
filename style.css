@@ -1,0 +1,29 @@
+body {
+font-family: Arial, sans-serif;
+margin: 40px;
+max-width: 700px;
+}
+
+h1 {
+color: #003366;
+}
+
+label {
+display: block;
+margin-top: 12px;
+}
+
+input, select {
+width: 200px;
+padding: 5px;
+margin-top: 3px;
+}
+
+button {
+margin-top: 20px;
+padding: 10px 15px;
+}
+
+p {
+font-size: 18px;
+}

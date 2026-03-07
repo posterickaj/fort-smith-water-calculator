@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fort Smith Water Bill Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Fort Smith Water Bill Calculator</h1>
+
+<p>This calculator estimates how a frontage levy system could affect water bills. 
+This is an educational model only.</p>
+
+<h2>Policy Levers</h2>
+
+<label>Frontage levy ($ per foot per month)</label>
+<input type="number" id="frontageLevy" value="0.30" step="0.01">
+
+<label>Surcharge threshold (CCF)</label>
+<input type="number" id="threshold" value="6">
+
+<label>Surcharge rate ($ per CCF above threshold)</label>
+<input type="number" id="surchargeRate" value="0" step="0.01">
+
+<h3>Dividend Type</h3>
+
+<select id="dividendType">
+<option value="flat">Flat per customer</option>
+<option value="frontage">Per foot of frontage</option>
+</select>
+
+<label>Dividend amount</label>
+<input type="number" id="dividendAmount" value="0" step="0.01">
+
+<h2>Your Property</h2>
+
+<label>Frontage (feet)</label>
+<input type="number" id="frontage" value="50">
+
+<label>Monthly water usage (CCF)</label>
+<input type="number" id="usage" value="6">
+
+<button onclick="calculate()">Calculate</button>
+
+<h2>Results</h2>
+
+<p>Current bill: $<span id="currentBill">0</span></p>
+<p>Frontage levy: $<span id="frontageCharge">0</span></p>
+<p>Surcharge: $<span id="surcharge">0</span></p>
+<p>Dividend credit: -$<span id="dividend">0</span></p>
+<p><strong>New bill: $<span id="newBill">0</span></strong></p>
+
+<script src="script.js"></script>
+
+</body>
+</html>
