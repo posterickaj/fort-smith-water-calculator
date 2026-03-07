@@ -31,22 +31,22 @@ let usage = parseFloat(document.getElementById("usage").value);
 
 let current = currentBill(usage);
 
+let baseMeterFee = 6.00;
 let frontageCharge = frontage * levy;
 
 let surcharge = 0;
-if(usage > threshold){
-surcharge = (usage - threshold) * surchargeRate;
+if (usage > threshold) {
+  surcharge = (usage - threshold) * surchargeRate;
 }
 
 let dividend = 0;
-if(dividendType === "flat"){
-dividend = dividendAmount;
-}
-else{
-dividend = frontage * dividendAmount;
+if (dividendType === "flat") {
+  dividend = dividendAmount;
+} else {
+  dividend = frontage * dividendAmount;
 }
 
-let newBill = current + frontageCharge + surcharge - dividend;
+let newBill = baseMeterFee + frontageCharge + surcharge - dividend;
 
 document.getElementById("currentBill").innerText = current.toFixed(2);
 document.getElementById("frontageCharge").innerText = frontageCharge.toFixed(2);
