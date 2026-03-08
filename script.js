@@ -54,5 +54,6 @@ document.getElementById("frontageCharge").innerText = frontageCharge.toFixed(2);
 document.getElementById("surcharge").innerText = surcharge.toFixed(2);
 document.getElementById("dividend").innerText = dividend.toFixed(2);
 document.getElementById("newBill").innerText = newBill.toFixed(2);
-  calculate();
+
 }
+window.onload = calculate;
