@@ -54,26 +54,28 @@ For educational purposes only.</small>
 <p>Dividend credit: -$<span id="dividend">0</span></p>
 
 <br>
-  <h2>Other variables to consider</h2>
-  <small>Default values below are recommended amounts, but you can change them to explore other scenarios.</small>
+<div class="advanced-settings">
+  <h2>Advanced settings (optional)</h2>
+  <p class="advanced-text">Most users can leave these values unchanged. These settings are for exploring alternative policy designs.</p>
 
-<label>Frontage levy ($ per foot per month)</label>
-<input type="number" id="frontageLevy" value="0.49" step="0.01" oninput="calculate()">
+  <label>Frontage levy ($ per foot per month)</label>
+  <input type="number" id="frontageLevy" value="0.49" step="0.01" oninput="calculate()">
 
-<label>Surcharge threshold (CCF)</label>
-<input type="number" id="threshold" value="5" oninput="calculate()">
+  <label>Surcharge threshold (CCF)</label>
+  <input type="number" id="threshold" value="5" oninput="calculate()">
 
-<label>Surcharge rate ($ per CCF above threshold)</label>
-<input type="number" id="surchargeRate" value="5.86" step="0.01" oninput="calculate()">
+  <label>Surcharge rate ($ per CCF above threshold)</label>
+  <input type="number" id="surchargeRate" value="5.86" step="0.01" oninput="calculate()">
 
-<br><label>Rebate Type</label>
-<select id="dividendType" onchange="calculate()">
-<option value="flat">Flat per customer</option>
-<option value="frontage">Per foot of frontage</option>
-</select>
+  <br><label>Rebate Type</label>
+  <select id="dividendType" onchange="calculate()">
+    <option value="flat">Flat per customer</option>
+    <option value="frontage">Per foot of frontage</option>
+  </select>
 
-<label>Rebate amount</label>
-<input type="number" id="dividendAmount" value="15" step="0.01" oninput="calculate()">
+  <label>Rebate amount</label>
+  <input type="number" id="dividendAmount" value="15" step="0.01" oninput="calculate()">
+</div>
 <hr>
 
 <h2 id="frontage-help">How to find your frontage</h2>
