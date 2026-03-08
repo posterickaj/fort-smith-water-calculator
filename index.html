@@ -31,15 +31,17 @@ For educational purposes only.</small>
 <label>Monthly water usage (CCF)</label>
 <input type="number" id="usage" value="4" oninput="calculate()">
 
-
-
 <h2>Results</h2>
+
+<div class="result-card">
+  <div class="result-title">Estimated Monthly Bill</div>
+  <div class="result-amount">$<span id="newBill">0</span></div>
+</div>
 
 <p>Current bill: $<span id="currentBill">0</span></p>
 <p>Frontage levy: $<span id="frontageCharge">0</span></p>
 <p>Surcharge: $<span id="surcharge">0</span></p>
 <p>Dividend credit: -$<span id="dividend">0</span></p>
-<p><strong>New bill: $<span id="newBill">0</span></strong></p>
 
 <script src="script.js"></script>
 <br>
