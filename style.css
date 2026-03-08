@@ -65,3 +65,23 @@ p {
   margin: 15px 0 20px 0;
   font-size: 16px;
 }
+.primary-inputs {
+  background: #eef6ff;
+  border: 2px solid #b7d4f5;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 20px 0;
+}
+
+.primary-inputs input {
+  border: 2px solid #003366;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 12px;
+}
+
+.helper-text {
+  margin-top: -5px;
+  font-size: 15px;
+  color: #444;
+}
