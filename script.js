@@ -56,4 +56,4 @@ document.getElementById("dividend").innerText = dividend.toFixed(2);
 document.getElementById("newBill").innerText = newBill.toFixed(2);
 
 }
-window.onload = calculate;
+calculate();
