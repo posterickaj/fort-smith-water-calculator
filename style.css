@@ -14,7 +14,8 @@ margin-top: 12px;
 }
 
 input, select {
-width: 200px;
+width: 100%;
+box-sizing: border-box;
 padding: 5px;
 margin-top: 3px;
 }
