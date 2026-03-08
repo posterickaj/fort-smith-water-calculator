@@ -57,3 +57,11 @@ p {
   border-radius: 12px;
   padding: 20px;
 }
+
+.notice-box {
+  background: #fff8e6;
+  border-left: 4px solid #d4a017;
+  padding: 12px;
+  margin: 15px 0 20px 0;
+  font-size: 16px;
+}
