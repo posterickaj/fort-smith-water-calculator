@@ -55,5 +55,21 @@ document.getElementById("surcharge").innerText = surcharge.toFixed(2);
 document.getElementById("dividend").innerText = dividend.toFixed(2);
 document.getElementById("newBill").innerText = newBill.toFixed(2);
 
+let percentChange = ((newBill - current) / current) * 100;
+let changeElement = document.getElementById("changeMessage");
+
+if (percentChange < 0) {
+  changeElement.innerText = Math.abs(percentChange).toFixed(1) + "% Decrease 📉 Good news!";
+  changeElement.style.color = "green";
+}
+else if (percentChange > 0) {
+  changeElement.innerText = percentChange.toFixed(1) + "% Increase 📈";
+  changeElement.style.color = "red";
+}
+else {
+  changeElement.innerText = "No change";
+  changeElement.style.color = "black";
+}
+  
 }
 calculate();
