@@ -85,3 +85,18 @@ p {
   font-size: 15px;
   color: #444;
 }
+.advanced-settings {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 25px 0;
+}
+
+.advanced-settings h2 {
+  color: #555;
+}
+
+.advanced-text {
+  font-size: 15px;
+  color: #666;
