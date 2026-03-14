@@ -106,8 +106,10 @@ p {
   border-top: 1px solid #ddd;
 }
 
-.other-sites h2 {
-  margin-bottom: 8px;
+.other-sites {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
 }
 
 .other-sites-intro {
