@@ -1,148 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fort Smith Frontage Levy Calculator</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fort Smith Frontage Levy Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="app-shell">
-<h1>Fort Smith Frontage Levy Calculator</h1>
+  <div class="app-shell">
 
-<small>A frontage levy is a way for the water department to charge more for pipe access and less for water consumption.
-  This calculator estimates how a possible frontage levy may affect your monthly water bill. It is not official 
-  and was not developed by anyone affiliated with City of Fort Smith. 
-  Actual rate changes would require staff analysis and board approval.
-For educational purposes only.</small>
-<div class="notice-box">
-  <strong>Important:</strong> Fort Smith utility bills also include sewer and solid waste. This calculator estimates changes to the <strong>water portion only</strong>.
-</div>
- 
-<div class="primary-inputs">
-  <h2>Start here: Enter your property</h2>
-  <p class="helper-text">These are the two main numbers most users will want to change.</p>
+    <h1>Fort Smith Frontage Levy Calculator</h1>
 
-  <label>
-    Frontage (feet)<br>
-    <small>If you live on a corner lot, use only the frontage along the street used for your address. If you don't know your frontage, </small><a href="#frontage-help" style="font-size:14px; margin-left:8px;">here are some tips.</a>
-  </label>
-  <input type="number" id="frontage" value="50" oninput="calculate()">
+    <small>
+      A frontage levy is a way for the water department to charge more for pipe access and less for water consumption.
+      This calculator estimates how a possible frontage levy may affect your monthly water bill. It is not official
+      and was not developed by anyone affiliated with City of Fort Smith.
+      Actual rate changes would require staff analysis and board approval.
+      For educational purposes only.
+    </small>
 
-  <label>Monthly water usage (CCF)</label>
-  <input type="number" id="usage" value="4" oninput="calculate()">
-</div>
-  
-<h2>Results</h2>
+    <div class="notice-box">
+      <strong>Important:</strong> Fort Smith utility bills also include sewer and solid waste.
+      This calculator estimates changes to the <strong>water portion only</strong>.
+    </div>
 
-<div class="result-card">
-  <div class="result-title">Estimated Monthly Bill</div>
-  <div class="result-amount">$<span id="newBill">0</span></div>
-</div>
+    <div class="primary-inputs">
+      <h2>Start here: Enter your property</h2>
+      <p class="helper-text">These are the two main numbers most users will want to change.</p>
 
-<p id="changeMessage" style="font-weight:bold; font-size:20px;"></p>
-  
-<p>Current bill: $<span id="currentBill">0</span></p>
-<p>Frontage levy: $<span id="frontageCharge">0</span></p>
-<p>Surcharge: $<span id="surcharge">0</span></p>
-<p>Dividend credit: -$<span id="dividend">0</span></p>
+      <label>
+        Frontage (feet)<br>
+        <small>
+          If you live on a corner lot, use only the frontage along the street used for your address.
+          If you don't know your frontage,
+        </small>
+        <a href="#frontage-help" style="font-size:14px; margin-left:8px;">here are some tips.</a>
+      </label>
+      <input type="number" id="frontage" value="50" oninput="calculate()">
 
-<br>
-<div class="advanced-settings">
-  <h2>Advanced settings (optional)</h2>
-  <p class="advanced-text">Most users can leave these values unchanged. These settings are for exploring alternative policy designs.</p>
+      <label>Monthly water usage (CCF)</label>
+      <input type="number" id="usage" value="4" oninput="calculate()">
+    </div>
 
-  <label>Frontage levy ($ per foot per month)</label>
-  <input type="number" id="frontageLevy" value="0.49" step="0.01" oninput="calculate()">
+    <h2>Results</h2>
 
-  <label>Surcharge threshold (CCF)</label>
-  <input type="number" id="threshold" value="5" oninput="calculate()">
+    <div class="result-card">
+      <div class="result-title">Estimated Monthly Bill</div>
+      <div class="result-amount">$<span id="newBill">0</span></div>
+    </div>
 
-  <label>Surcharge rate ($ per CCF above threshold)</label>
-  <input type="number" id="surchargeRate" value="5.86" step="0.01" oninput="calculate()">
+    <p id="changeMessage" style="font-weight:bold; font-size:20px;"></p>
 
-  <br><label>Rebate Type</label>
-  <select id="dividendType" onchange="calculate()">
-    <option value="flat">Flat per customer</option>
-    <option value="frontage">Per foot of frontage</option>
-  </select>
+    <p>Current bill: $<span id="currentBill">0</span></p>
+    <p>Frontage levy: $<span id="frontageCharge">0</span></p>
+    <p>Surcharge: $<span id="surcharge">0</span></p>
+    <p>Dividend credit: -$<span id="dividend">0</span></p>
 
-  <label>Rebate amount</label>
-  <input type="number" id="dividendAmount" value="15" step="0.01" oninput="calculate()">
-</div>
-<hr>
+    <div class="advanced-settings">
+      <h2>Advanced settings (optional)</h2>
+      <p class="advanced-text">
+        Most users can leave these values unchanged. These settings are for exploring alternative policy designs.
+      </p>
 
-<h2 id="frontage-help">How to find your frontage</h2>
+      <label>Frontage levy ($ per foot per month)</label>
+      <input type="number" id="frontageLevy" value="0.49" step="0.01" oninput="calculate()">
 
-<p>Your frontage is the width of your property along the street.</p>
+      <label>Surcharge threshold (CCF)</label>
+      <input type="number" id="threshold" value="5" oninput="calculate()">
 
-<h3>Option 1 — Use Google Maps (mobile)</h3>
+      <label>Surcharge rate ($ per CCF above threshold)</label>
+      <input type="number" id="surchargeRate" value="5.86" step="0.01" oninput="calculate()">
 
-<ol>
-<li>Open <a href="https://maps.google.com" target="_blank">Google Maps</a></li>
-<li>Zoom to your house</li>
-<li>Press and hold on one corner of your property along the street until a red pin appears.</li>
-<li>Tap the pin information panel at the bottom of the screen.</li>
-<li>Tap <strong>Measure distance</strong></li>
-<li>Move the map until the crosshair reaches the other corner of your property along the street.</li>
-</ol>
+      <label>Rebate Type</label>
+      <select id="dividendType" onchange="calculate()">
+        <option value="flat">Flat per customer</option>
+        <option value="frontage">Per foot of frontage</option>
+      </select>
 
-<p>The distance shown is your frontage in feet.</p>
+      <label>Rebate amount</label>
+      <input type="number" id="dividendAmount" value="15" step="0.01" oninput="calculate()">
+    </div>
 
-<h3>Option 2 — Use Arkansas property records</h3>
+    <hr>
 
-<p>You can also look up your parcel information at:</p>
+    <h2 id="frontage-help">How to find your frontage</h2>
 
-<p>
-<a href="https://www.arcountydata.com/" target="_blank">
-Arkansas County Data Property Records
-</a>
-</p>
+    <p>Your frontage is the width of your property along the street.</p>
 
-<p>
-Search for your property and look for the parcel dimensions or lot width.
-</p>
+    <h3>Option 1 — Use Google Maps (mobile)</h3>
 
-<h3>Typical frontage sizes</h3>
+    <ol>
+      <li>Open <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Google Maps</a></li>
+      <li>Zoom to your house</li>
+      <li>Press and hold on one corner of your property along the street until a red pin appears.</li>
+      <li>Tap the pin information panel at the bottom of the screen.</li>
+      <li>Tap <strong>Measure distance</strong></li>
+      <li>Move the map until the crosshair reaches the other corner of your property along the street.</li>
+    </ol>
 
-<ul>
-<li>Apartment: ~15 feet</li>
-<li>Townhouse: ~25 feet</li>
-<li>Small lot: ~35 feet</li>
-<li>Typical suburban lot: ~50 feet</li>
-<li>Large lot: ~100 feet</li>
-<li>Estate lot: 200–300 feet</li>
-</ul>
-<script src="script.js"></script>
+    <p>The distance shown is your frontage in feet.</p>
 
-<section class="other-sites">
-  <h2>Other Fort Smith Projects</h2>
-  <p class="other-sites-intro">
-    Explore more of my work on Fort Smith policy, local data, and related projects.
-  </p>
+    <h3>Option 2 — Use Arkansas property records</h3>
 
-  <div class="link-list">
-    <a class="resource-link" href="https://www.google.com/maps/d/edit?mid=1MT3ZIuRWOu04N7uudaIZ9nhp2RFfRx8&usp=sharing">
-      <div class="resource-title">Fort Smith Retail Districts</div>
-      <div class="resource-description">Made to divide the city into discrete retail corridors for sales tax analysis.</div>
-    </a>
+    <p>You can also look up your parcel information at:</p>
 
-    <a class="resource-link" href="https://www.google.com/maps/d/edit?mid=15P0ObngpHxXRSbj_WPcDGJ-FeeiYHjE&usp=sharing">
-      <div class="resource-title">Fort Smith Roundabouts</div>
-      <div class="resource-description">Just for fun, a map of all the roundabouts and "notabouts" in Fort Smith.</div>
-    </a>
+    <p>
+      <a href="https://www.arcountydata.com/" target="_blank" rel="noopener noreferrer">
+        Arkansas County Data Property Records
+      </a>
+    </p>
 
-    <a class="resource-link" href="about:blank">
-      <div class="resource-title">Reflector Project (no link)</div>
-      <div class="resource-description">My reflectors will be carried by Fort Smith Police to give to vulnerable road users at night.</div>
-    </a>
+    <p>Search for your property and look for the parcel dimensions or lot width.</p>
 
-   <a class="resource-link" href="https://www.youtube.com/@AndyInTheFort">
-      <div class="resource-title">Fort Smith Urbanism Videos</div>
-      <div class="resource-description">My videos taking ideas from smarter people and applying them to real-world scenarios in Fort Smith.</div>
-    </a>
+    <h3>Typical frontage sizes</h3>
+
+    <ul>
+      <li>Apartment: ~15 feet</li>
+      <li>Townhouse: ~25 feet</li>
+      <li>Small lot: ~35 feet</li>
+      <li>Typical suburban lot: ~50 feet</li>
+      <li>Large lot: ~100 feet</li>
+      <li>Estate lot: 200–300 feet</li>
+    </ul>
+
+    <section class="other-sites">
+      <h2>Other Fort Smith Projects</h2>
+      <p class="other-sites-intro">
+        Explore more of my work on Fort Smith policy, local data, and related projects.
+      </p>
+
+      <div class="link-list">
+        <a class="resource-link" href="https://www.google.com/maps/d/edit?mid=1MT3ZIuRWOu04N7uudaIZ9nhp2RFfRx8&usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div class="resource-title">Fort Smith Retail Districts</div>
+          <div class="resource-description">Made to divide the city into discrete retail corridors for sales tax analysis.</div>
+        </a>
+
+        <a class="resource-link" href="https://www.google.com/maps/d/edit?mid=15P0ObngpHxXRSbj_WPcDGJ-FeeiYHjE&usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div class="resource-title">Fort Smith Roundabouts</div>
+          <div class="resource-description">Just for fun, a map of all the roundabouts and "notabouts" in Fort Smith.</div>
+        </a>
+
+        <a class="resource-link" href="about:blank">
+          <div class="resource-title">Reflector Project (no link)</div>
+          <div class="resource-description">My reflectors will be carried by Fort Smith Police to give to vulnerable road users at night.</div>
+        </a>
+
+        <a class="resource-link" href="https://www.youtube.com/@AndyInTheFort" target="_blank" rel="noopener noreferrer">
+          <div class="resource-title">Fort Smith Urbanism Videos</div>
+          <div class="resource-description">My videos taking ideas from smarter people and applying them to real-world scenarios in Fort Smith.</div>
+        </a>
+      </div>
+    </section>
+
   </div>
-</section>
-</div>
+
+  <script src="script.js"></script>
 </body>
 </html>
