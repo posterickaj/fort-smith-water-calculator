@@ -148,3 +148,11 @@ p {
   color: #444;
   line-height: 1.4;
 }
+.resource-link {
+  text-decoration: none;
+}
+
+.resource-link:link,
+.resource-link:visited {
+  color: inherit;
+}
